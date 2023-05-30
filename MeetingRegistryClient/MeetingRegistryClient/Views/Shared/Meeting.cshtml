@@ -1,0 +1,32 @@
+﻿@model Meeting
+
+<table id="registrytable" class="table">
+    <tdead>
+        <tr>
+            <th>Название мероприятия
+                <input id="naming">Мероприятие</input>
+            </th>
+            <th>Описание
+                <input id="description">Описание</input>
+            </th>
+        </tr>
+    </tdead>
+    <tbody>
+        <button id="create">Создать</button>
+    </tbody>
+</table>
+<script>
+   
+    document.getElementById("create").addEventListener('click', function () {
+        var namevalue = $("#naming").val();
+        var descvalue = $("#description").val();
+        var str1 = '@Url.Action("CreateMeeting","MeetingRegistry",
+        new RouteValueDictionary(
+            new { name = "xxx" , description = "yyy" })
+        
+        )'.replace("xxx", namevalue);
+        str1 = str1.replaceAll('&amp;', '&');
+        location.href = str1.replace("yyy", descvalue);
+
+    });
+</script>

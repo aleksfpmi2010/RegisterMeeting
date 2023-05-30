@@ -1,0 +1,11 @@
+﻿<style type="text/css" >
+table tr button {
+    opacity: 0;
+    float: right
+}
+
+table tr:hover button {
+    opacity: 1
+}
+
+</style>

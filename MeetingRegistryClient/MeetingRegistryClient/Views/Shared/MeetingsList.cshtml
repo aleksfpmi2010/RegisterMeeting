@@ -1,0 +1,26 @@
+﻿@model MeetingsList
+
+<table id="registrytable" class="table">
+    <tdead>
+        <tr>
+            <th>Название мероприятия</th>
+            <th>Описание</th>
+        </tr>
+    </tdead>
+    <tbody>
+        @foreach (var item in Model.Meetings)
+        {
+            <tr>
+                <td id="@item.MeetingId">@item.Name
+                    <button id="register">Register</button>
+                </td>
+                <td>@item.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    document.getElementById("register").addEventListener('click', function () {
+        location.href = '@Url.Action("RegisterToMeeting","MeetingRegistry",  new { login = "Id" , id = "valoare" })';
+    });
+</script>
